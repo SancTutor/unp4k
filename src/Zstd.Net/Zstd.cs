@@ -215,7 +215,8 @@ namespace Zstd.Net
 		{
 			#region DllImports
 
-			private const String DllName = @"x64\libzstd";
+			// Cross-platform: on Linux/macOS this resolves to the system libzstd (libzstd.so / libzstd.dylib)
+			private const String DllName = "libzstd";
 
 			[DllImport(DllName, EntryPoint = "ZSTD_maxCLevel", CallingConvention = CallingConvention.Cdecl)]
 			private static extern Int32 zstd_GetMaxCompessionLevel();
